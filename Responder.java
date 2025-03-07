@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * The responder class represents a response generator object.
@@ -13,41 +14,33 @@ public class Responder
     /**
      * Construct a Responder - nothing to do
      */
-    private Random randomGenerator;
-    private ArrayList<String> responses;
+    private HashMap<String,String> responses;
+    //private Answer;
     /**
      * Constructor for objects of class Responder
      */
     public Responder()
     {
         // initialise instance variables
-        randomGenerator = new Random();
-        responses = new ArrayList<>();
-        
-        responses.add("nice");
-        responses.add("cool");
-        responses.add("oh...");
-        responses.add("who knows");
+    responses = new HashMap<>();
+    fillResponsesMap();
+}
+
+    private void fillResponsesMap(){
+        responses.put("crash","try to reboot your computer");
+        responses.put("slow", "try to close some other apps");
+        responses.put("froze", "try to reboot your computer");
+    }
+    private String pickDefaultResponse(){
+        return "no idea sorry";
     }
 
-    public String getResponse(){
-        int index = randomGenerator.nextInt(4);
-         if (index == 0 ){
-            return "nice";
-        } else if (index == 1) {
-            return "cool";
-        } else if (index == 2){
-            return "oh...";
-        }  else if (index == 3){
-            return "who knows";
-        }
-        return "";
-    }
-
-    public String getBetterResponse(){   
-    int index = randomGenerator.nextInt(responses.size());
-    return responses.get(index);
-    }
+    //public String generateBetterResponse(String word){   
+   // if (answer==null) {
+   //     answer= pickDefaultResponse();
+    //}
+    //return answer;
+   // }
 }
 
         
