@@ -41,10 +41,12 @@ public class SupportSystem
 
             if(input.startsWith("bye")) {
                 finished = true;
-            
-            
             }
-    }
+            else {
+                String response = responder.getResponse();
+                System.out.println(response);
+            }
+        }
 
         printGoodbye();
     }
